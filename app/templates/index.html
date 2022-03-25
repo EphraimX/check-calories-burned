@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'style.css')}}">
+    <title>Calorie Burn Checker</title>
+</head>
+<body>
+    <div class="register-photo">
+        <div class="form-container">
+            <div class="image-holder"></div>
+            <form action="{{ url_for('predict')}}" method="post">
+                <h2 class="text-center"><strong>Check</strong> the calorie burnt.</h2>
+                <h2 class="text-center">
+                    {% if prediction_text %}
+                        <strong>{{prediction_text}}</strong>
+                    {% endif %}
+                </h2>
+                <div class="form-group"><input class="form-control" type="text" name="gender" placeholder="Gender" autocomplete="off" required></div>
+                <div class="form-group"><input class="form-control" type="text" name="age" placeholder="Age" autocomplete="off" required></div>
+                <div class="form-group"><input class="form-control" type="text" name="height" placeholder="Height" autocomplete="off" required></div>
+                <div class="form-group"><input class="form-control" type="text" name="weight" placeholder="Weight" autocomplete="off" required></div>
+                <div class="form-group"><input class="form-control" type="text" name="duration" placeholder="Duration" autocomplete="off" required></div>
+                <div class="form-group"><input class="form-control" type="text" name="heartRate" placeholder="Heart Rate" autocomplete="off" required></div>
+                <div class="form-group"><input class="form-control" type="text" name="bodyTemp" placeholder="Body Temperature" autocomplete="off" required></div>
+                <div class="form-group"><button class="btn btn-success btn-block" type="submit">Check</button></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
