@@ -32,7 +32,7 @@ def predict():
         prediction = model.predict(np.array([gender, age, height, weight, duration, heartRate, bodyTemp]).reshape(1, -1))
         output = round(prediction[0], 2)
 
-        return render_template('index.html', prediction_text=f'You burnt {output} calories today')
+        return render_template('index.html', prediction_text=f'You burned {output} calories today')
     else:
         return render_template('index.html', prediction_text='')
 
